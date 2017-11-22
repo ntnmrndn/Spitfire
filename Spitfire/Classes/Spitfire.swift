@@ -114,12 +114,11 @@ import UIKit
                 }
 
                 videoWriterInput.markAsFinished()
-                videoWriter.finishWriting { [weak self] () -> Void in
-                    guard let strongSelf = self else { return }
-
-                    success(strongSelf.outputURL)
+                videoWriter.finishWriting { () -> Void in
+                    success(self.outputURL)
                 }
             })
         }
     }
 }
+
